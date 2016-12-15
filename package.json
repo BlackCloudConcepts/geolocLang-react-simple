@@ -16,7 +16,7 @@
       "patterns": [
         "src"
       ],
-      "extensions": "jsx",
+      "extensions": "jsx, scss",
       "ignore": "anything.js",
       "quiet": true
     }
