@@ -1,6 +1,8 @@
 import styles from './index.scss';
 import React from 'react';
+import {Router, Route, hashHistory} from 'react-router';
 import Dashboard from './components/dashboard';
+import Home from './components/home';
 
 export default class App extends React.Component {
   
@@ -8,9 +10,9 @@ export default class App extends React.Component {
     super(props);
     this.props = props;
 
-    this.localProps = React.cloneElement(this.props, { name: 'Scott' });
+//    this.localProps = React.cloneElement(this.props, { name: 'Scott' });
   }
-
+/*
   render() {
     return (
       <div>
@@ -24,4 +26,15 @@ export default class App extends React.Component {
       </div>
     )
   }
+*/
+
+  render() {
+    return (
+      <Router history={hashHistory}>
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/" component={Home} />
+      </Router>  
+    )
+  }
+
 }

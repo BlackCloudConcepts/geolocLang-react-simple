@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './navigation';
 
-export default class Dashboard extends React.Component {
+export default class Home extends React.Component {
   
   constructor(props) {
     super(props);
@@ -11,11 +11,11 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <div>
-         <div>
+        <div>
           <Navigation />
         </div>
         <div>
-          My name is {this.props.name}!
+          geolocLang { <a href="https://github.com/BlackCloudConcepts/geolocLang-react-simple" target="_blank">View on Github</a> }
         </div>
       </div>
     );
