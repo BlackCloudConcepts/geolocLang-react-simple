@@ -8,7 +8,16 @@
     "build-prod": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
-    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors"
+    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build": {
+      "patterns": ["src"],
+      "extensions": "jsx",
+      "ignore": "anything.js",
+      "quiet": true
+    }
   },
   "repository": {
     "type": "git",
@@ -19,6 +28,7 @@
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "node-sass": "^3.13.0",
+    "npm-watch": "^0.1.6",
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "sass-loader": "^4.0.2"
