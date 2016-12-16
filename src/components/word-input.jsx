@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../actions';
 
 class WordInput extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.props = props;
@@ -70,7 +70,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: state =>  { dispatch(actionCreators.addWords(state.words)); }
+    handleClick: ( state ) =>  { 
+      var words = {
+        word1: word1.value,
+        word2: word2.value,
+        word3: word3.value
+      };
+      dispatch(actionCreators.addWords(words)); 
+    }
   }
 }
 
