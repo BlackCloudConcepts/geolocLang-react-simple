@@ -1,8 +1,13 @@
 import styles from './index.scss';
 import React from 'react';
 import {Router, Route, hashHistory} from 'react-router';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 import Dashboard from './components/dashboard';
 import Home from './components/home';
+import locationReducer from './reducers/locations';
+
+const store = createStore(locationReducer);
 
 export default class App extends React.Component {
   
@@ -11,6 +16,7 @@ export default class App extends React.Component {
     this.props = props;
 
 //    this.localProps = React.cloneElement(this.props, { name: 'Scott' });
+
   }
 /*
   render() {
@@ -30,10 +36,12 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router history={hashHistory}>
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/" component={Home} />
-      </Router>  
+      <Provider store={store}>
+        <Router history={hashHistory}>
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/" component={Home} />
+        </Router> 
+      </Provider> 
     )
   }
 
