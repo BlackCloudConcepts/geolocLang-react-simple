@@ -7,7 +7,8 @@ import Dashboard from './components/dashboard';
 import Home from './components/home';
 import locationReducer from './reducers/locations';
 
-const store = createStore(locationReducer);
+//const store = createStore(locationReducer);
+const store = createStore(locationReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default class App extends React.Component {
   
