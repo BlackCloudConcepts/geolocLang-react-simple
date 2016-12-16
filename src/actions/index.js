@@ -1,5 +1,5 @@
 export function addWords(words) {
-  console.log('addWords');
+  console.log('addWords called');
   return {
     type: 'SET',
     payload: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from './navigation';
-import WordInputContainer from './word-input';
+import { WordInputContainer } from './word-input';
 import Map from './map';
 import List from './list';
 

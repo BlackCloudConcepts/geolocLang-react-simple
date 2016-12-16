@@ -1,10 +1,9 @@
 import styles from '../index.scss';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
-// import locationReducer from '../reducers/locations';
 import * as actionCreators from '../actions';
 
-export default class WordInput extends React.Component {
+class WordInput extends React.Component {
   
   constructor(props) {
     super(props);
@@ -16,30 +15,15 @@ export default class WordInput extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.checkProps = this.checkProps.bind(this);
 
-    this.localProps = React.cloneElement(this.props, { addWords: actionCreators.addWords });
-
-    console.log(this.localProps);
   }
  
-  handleSubmit () {
-    console.log(this.state);
-    console.log(actionCreators);
-    console.log(store);
-    actionCreators.addWords(this.state);
-  }
-
-  checkProps () {
-    console.log(this.props);
-  }
-
   handleChange(event) {
     this.setState({[event.target.id]: event.target.value});
   }
 
   render() {
+    const { handleClick } = this.props;
     return (
       <div className={styles.card}>
         <div>
@@ -52,10 +36,7 @@ export default class WordInput extends React.Component {
           <input type="text" id="word3" size="50" onChange={this.handleChange} value={this.state.word3} />          
         </div>
         <div>
-          <button onClick={this.localProps.props.addWords}>Find</button>
-        </div>
-        <div>
-          <button onClick={this.checkProps}>props</button>
+          <button onClick={handleClick}>Find</button>
         </div>
         <div className={styles.hint}>
           Hints:
@@ -74,8 +55,11 @@ export default class WordInput extends React.Component {
   }
 }
 
+WordInput.propTypes = {
+  handleClick: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps');
   return {
     word1: state.get('word1'),
     word2: state.get('word2'),
@@ -86,25 +70,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSubmit: state =>  { console.log('handle submit'); dispatch(addWords(state.words)); }
-/*
-    handleSubmit: (state) => {
-      console.log('handle submit');
-      dispatch(state);
-    }
-*/
+    handleClick: state =>  { dispatch(actionCreators.addWords(state.words)); }
   }
-}
-
-export function setState(state) {
-  return {
-    type: 'SET',
-    state
-  };
 }
 
 export const WordInputContainer = connect(
   mapStateToProps,
-  actionCreators
+  mapDispatchToProps
 )(WordInput)
 
