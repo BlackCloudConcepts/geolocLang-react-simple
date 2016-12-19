@@ -1,6 +1,20 @@
-* https://github.com/alicoding/react-webpack-babel
+# geolocLang - react, redux, react-redux, immutable
 
-# react-webpack-babel
+* baseline - https://github.com/alicoding/react-webpack-babel
+
+## Decisions
+### React.createClass vs extends React.Component
+* https://toddmotto.com/react-create-class-versus-component/
+
+### Options of how to make an API call
+*https://hashnode.com/post/5-best-libraries-for-making-ajax-calls-in-react-cis8x5f7k0jl7th53z68s41k1
+
+## Tools
+* https://github.com/zalmoxisus/redux-devtools-extension#usage
+
+
+
+# (Based On) react-webpack-babel
 Simple React Webpack Babel Starter Kit
 
 Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
