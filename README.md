@@ -2,6 +2,10 @@
 
 * baseline - https://github.com/alicoding/react-webpack-babel
 
+* To Build - npm run watch (https://www.npmjs.com/package/npm-watch)
+
+* Config - Add /src/config.jsx with "export const config = {whatThreeWordsKey: 'yourkeygoeshere'};"
+
 ## Decisions
 ### React.createClass vs extends React.Component
 * https://toddmotto.com/react-create-class-versus-component/
@@ -11,6 +15,7 @@
 
 ## Tools
 * https://github.com/zalmoxisus/redux-devtools-extension#usage
+
 
 
 
