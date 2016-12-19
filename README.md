@@ -7,10 +7,16 @@
 * https://toddmotto.com/react-create-class-versus-component/
 
 ### Options of how to make an API call
-*https://hashnode.com/post/5-best-libraries-for-making-ajax-calls-in-react-cis8x5f7k0jl7th53z68s41k1
+* https://hashnode.com/post/5-best-libraries-for-making-ajax-calls-in-react-cis8x5f7k0jl7th53z68s41k1
 
 ## Tools
 * https://github.com/zalmoxisus/redux-devtools-extension#usage
+
+
+
+
+
+
 
 
 
