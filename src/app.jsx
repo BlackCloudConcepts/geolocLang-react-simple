@@ -2,13 +2,18 @@ import styles from './index.scss';
 import React from 'react';
 import {Router, Route, hashHistory} from 'react-router';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import Dashboard from './components/dashboard';
 import Home from './components/home';
 import locationReducer from './reducers/locations';
+import locationMiddleware from './middleware/locationsMiddleware';
 
-//const store = createStore(locationReducer);
-const store = createStore(locationReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const createStoreWithMiddleware = applyMiddleware(
+  locationMiddleware()
+)(createStore);
+
+// const store = createStore(locationReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStoreWithMiddleware(locationReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default class App extends React.Component {
   
