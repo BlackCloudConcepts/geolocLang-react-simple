@@ -14,45 +14,36 @@ class List extends React.Component {
     return (
       <div className={styles.card}>
         <div>
-          List of Words
+          List of past searches
         </div>
-        <div>
-          {this.props.word1}        
-        </div>
-        <div>
-          {this.props.word2}
-        </div>
-        <div>
-          {this.props.word3}
-        </div>
+        <div className={styles.listColumnMain+' '+styles.header}>Words</div>
+        <div className={styles.listColumn+' '+styles.header}>Lat</div>
+        <div className={styles.listColumn+' '+styles.header}>Lng</div>
+        <div className={styles.clear}></div>
+        {
+
+        this.props.locations.map((item, i) => {
+          return <div key={i}>
+            <div className={styles.listColumnMain}>{item.word1} {item.word2} {item.word3}</div>
+            <div className={styles.listColumn}>{item.lat}</div>
+            <div className={styles.listColumn}>{item.lng}</div>
+            <div className={styles.clear}></div>
+          </div>;
+        })
+
+        }
       </div>
     );
   }
 }
 
-List.propTypes = {
-  handleClick: PropTypes.func.isRequired
-}
-
 const mapStateToProps = (state) => {
-  var obj = state.getIn(['locations', 0]);
-  var ste = {
-    word1: '',
-    word2: '',
-    word3: ''
-  }
-  if (obj){
-    ste.word1 = obj.word1;
-    ste.word2 = obj.word2;
-    ste.word3 = obj.word3;
-  }
-  return {
-    word1: ste.word1,
-    word2: ste.word2,
-    word3: ste.word3
+  if (state.getIn(['locations'])) {
+    return { locations: state.getIn(['locations']) };
+  } else {
+    return { locations: [] };
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return {

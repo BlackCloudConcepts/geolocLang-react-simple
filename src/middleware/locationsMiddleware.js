@@ -11,11 +11,8 @@ function getLocationFromWords(words){
 }
 
 export default locationMiddleware => store => next => action => {
-  console.log('in middleware', action);
   if (action.payload) {
-    console.log(action.payload);
     getLocationFromWords(action.payload[0]).then((data) => {
-      console.log(data);
       action.payload[0].lat = data.geometry.lat;
       action.payload[0].lng = data.geometry.lng;
       next(action);
