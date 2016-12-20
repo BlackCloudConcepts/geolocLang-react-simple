@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './navigation';
 import { WordInputContainer } from './word-input';
-import Map from './map';
+import { MapContainer } from './map';
 import { ListContainer } from './list';
 
 export default class Dashboard extends React.Component {
@@ -21,7 +21,7 @@ export default class Dashboard extends React.Component {
           My name is {this.props.name}!
         </div>
         <WordInputContainer />
-        <Map />
+        <MapContainer />
         <ListContainer />
       </div>
     );
